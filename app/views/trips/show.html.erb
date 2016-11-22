@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Video link:</strong>
+  <%= @trip.video_link %>
+</p>
+
+<p>
+  <strong>Google map path link:</strong>
+  <%= @trip.google_map_path_link %>
+</p>
+
+<p>
+  <strong>Start point:</strong>
+  <%= @trip.start_point %>
+</p>
+
+<p>
+  <strong>End poinrt:</strong>
+  <%= @trip.end_poinrt %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @trip.distance %>
+</p>
+
+<p>
+  <strong>Road type:</strong>
+  <%= @trip.road_type %>
+</p>
+
+<p>
+  <strong>Numbers of people:</strong>
+  <%= @trip.numbers_of_people %>
+</p>
+
+<p>
+  <strong>Accident:</strong>
+  <%= @trip.accident %>
+</p>
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>

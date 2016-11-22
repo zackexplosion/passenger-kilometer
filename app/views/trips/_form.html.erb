@@ -1,0 +1,54 @@
+<%= semantic_form_for @trip do |f| %>
+  <%= f.inputs %>
+  <%= f.actions %>
+<% end %>
+<hr />
+<%= semantic_form_for @trip do |f| %>
+  <% if @trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+      <ul>
+      <% @trip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :video_link %><br>
+    <%= f.text_field :video_link %>
+  </div>
+  <div class="field">
+    <%= f.label :google_map_path_link %><br>
+    <%= f.text_field :google_map_path_link %>
+  </div>
+  <div class="field">
+    <%= f.label :start_point %><br>
+    <%= f.text_field :start_point %>
+  </div>
+  <div class="field">
+    <%= f.label :end_poinrt %><br>
+    <%= f.text_field :end_poinrt %>
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br>
+    <%= f.text_field :distance %>
+  </div>
+  <div class="field">
+    <%= f.label :road_type %><br>
+    <%= f.text_field :road_type %>
+  </div>
+  <div class="field">
+    <%= f.label :numbers_of_people %><br>
+    <%= f.number_field :numbers_of_people %>
+  </div>
+  <div class="field">
+    <%= f.label :accident %><br>
+    <%= f.check_box :accident %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

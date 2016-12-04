@@ -14,10 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require switchery
 
+window.onload = function() {
+	var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'))
 
-var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'))
-
-elems.forEach(function(html) {
-  var switchery = new Switchery(html)
-})
+	elems.forEach(function(html) {
+	  var switchery = new Switchery(html)
+	})
+}

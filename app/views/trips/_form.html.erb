@@ -5,7 +5,7 @@
   https://dribbble.com/shots/1677101-Form
 
 -->
-
+<div class="input-box">
 <%= form_for @trip do |f| %>
 
   <% if @trip.errors.any? %>
@@ -67,7 +67,7 @@
   <div class="col-3">
     <%= f.label :accident do %>
       是否發生事故
-      <%= f.select :accident, Trip.RoadTypes, tabindex: 8 %>
+      <%= f.check_box :accident, :class => 'js-switch', tabindex: 9 %>
     <% end %>
   </div>
 
@@ -83,3 +83,4 @@
     <%= f.submit %>
   </div> -->
 <% end %>
+</div>

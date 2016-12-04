@@ -43,4 +43,5 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'formtastic', '~> 3.0'
+# gem 'formtastic', '~> 3.0'
+gem 'switchery-rails'

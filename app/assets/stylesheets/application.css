@@ -12,13 +12,56 @@
  *
  *= require_tree .
  *= require_self
+ *= require switchery
  */
+
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 
  h1 {
  	font-family: 'Roboto', 'LiHei Pro','微軟正黑體', sans-serif
  }
 
  .header{
- 	margin-top: 60px;
+ 	/*margin-top: 60px;*/
  	text-align: center;
+ 	width: 100%;
+ 	position: fixed;
+ 	top: 50px;
+ 	/*left: 10px;*/
+ 	z-index: 999999;
+ 	/*background: rgba(0, 0, 0, 0.3);*/
  }
+
+ .input-box {
+ 	width: 40%;
+ 	position: fixed;
+ 	bottom: 30px;
+ 	right: 30px;
+ }
+
+.switchery{
+	margin-top: 15px;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.map-content {
+    z-index: 10;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 390px;
+    background-color: black;
+    color: #FFF;
+}

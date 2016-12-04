@@ -4,7 +4,7 @@ class CreateTrips < ActiveRecord::Migration
       t.string :video_link
       t.string :google_map_path_link
       t.string :start_point
-      t.string :end_poinrt
+      t.string :end_point
       t.float :distance
       t.string :road_type
       t.integer :numbers_of_people

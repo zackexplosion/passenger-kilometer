@@ -1,9 +1,13 @@
-<%= semantic_form_for @trip do |f| %>
-  <%= f.inputs %>
-  <%= f.actions %>
-<% end %>
-<hr />
-<%= semantic_form_for @trip do |f| %>
+
+<!--
+
+  Check out this super simple Form by Andrew Coyle
+  https://dribbble.com/shots/1677101-Form
+
+-->
+
+<%= form_for @trip do |f| %>
+
   <% if @trip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
@@ -16,39 +20,66 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :video_link %><br>
-    <%= f.text_field :video_link %>
+  <div class="col-2">
+    <%= f.label :video_link do %>
+      影片連結
+      <%= f.text_field :video_link, placeholder: '請輸入youtube影片連結', tabindex: 1 %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :google_map_path_link %><br>
-    <%= f.text_field :google_map_path_link %>
+  <div class="col-2">
+    <%= f.label :google_map_path_link do %>
+      路線圖連結
+      <%= f.text_field :google_map_path_link, placeholder: 'Google Map的路線圖', tabindex: 2 %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :start_point %><br>
-    <%= f.text_field :start_point %>
+  <div class="col-4">
+    <%= f.label :start_point do %>
+      啟始點
+      <%= f.text_field :start_point, placeholder: '影片中開始的路段地點', tabindex: 3 %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :end_poinrt %><br>
-    <%= f.text_field :end_poinrt %>
+  <div class="col-4">
+    <%= f.label :end_point do %>
+      結束點
+      <%= f.text_field :end_point, placeholder: '影片中結束的地點', tabindex: 4 %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :distance %><br>
-    <%= f.text_field :distance %>
+  <div class="col-4">
+    <%= f.label :distance do %>
+      移動距離
+      <%= f.text_field :distance, placeholder: '移動的總距離(大概)', tabindex: 5 %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :road_type %><br>
-    <%= f.text_field :road_type %>
+  <div class="col-4">
+    <%= f.label :road_type do %>
+      道路類型
+      <%= f.select :road_type, Trip.RoadTypes, tabindex: 6 %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :numbers_of_people %><br>
-    <%= f.number_field :numbers_of_people %>
+
+  <div class="col-3">
+    <%= f.label :numbers_of_people do %>
+      承載人數
+      <%= f.number_field :numbers_of_people, placeholder: '乘客與駕駛', tabindex: 7 %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :accident %><br>
-    <%= f.check_box :accident %>
+
+  <div class="col-3">
+    <%= f.label :accident do %>
+      是否發生事故
+      <%= f.select :accident, Trip.RoadTypes, tabindex: 8 %>
+    <% end %>
   </div>
-  <div class="actions">
+
+  <div class="col-3 col-submit">
+    <button type="submit">送出</button>
+  </div>
+
+  <!-- <div class="col-submit">
+    <button type="submit">確定</button>
+  </div> -->
+
+<!--   <div class="col-submit">
     <%= f.submit %>
-  </div>
+  </div> -->
 <% end %>

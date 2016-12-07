@@ -8,6 +8,18 @@ var form_steps = {
     notify_text: '點擊地圖選擇結束點',
     click_on_map: true,
   },
+  '#trip_distance': {
+    notify_text: '未來會有自動計算功能',
+  },
+  '#trip_road_type': {
+    notify_text: '選擇行駛的道路類型',
+  },
+  '#trip_numbers_of_people': {
+    notify_text: '包含自己的乘客數量，建議不要三貼',
+  },
+  '#trip_video_link': {
+    notify_text: '驗證距離的影片',
+  }
 }
 
 function initFormSteps(map, form_steps) {
@@ -33,7 +45,7 @@ function initFormSteps(map, form_steps) {
 
     // select from the JSON key
     current_form_element = $(setp_keys[current_step])
-
+    current_form_element.focus()
     // get the notify text from current action
     var notify_text = current_action.notify_text
     current_form_element.notify(notify_text)
@@ -43,15 +55,15 @@ function initFormSteps(map, form_steps) {
 
   updateStepHint()
 
+  var submit_form = false
   action_button.on('click submit', function(event){
-    event.preventDefault()
-
 
     current_step++
+
     if ( updateStepHint() ){
       current_marker = null
-    } else {
-      console.log('submit form')
+      event.preventDefault()
+      return
     }
 
   })

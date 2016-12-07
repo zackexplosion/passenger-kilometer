@@ -33,12 +33,7 @@
     <% end %>
   </div>
 
-  <div class="col-4">
-    <%= f.label :video_link do %>
-      影片連結
-      <%= f.text_field :video_link, placeholder: '請輸入youtube影片連結', tabindex: 1 %>
-    <% end %>
-  </div>
+
 <!--   <div class="col-2">
     <%= f.label :google_map_path_link do %>
       路線圖連結
@@ -48,7 +43,7 @@
   <div class="col-4">
     <%= f.label :distance do %>
       移動距離
-      <%= f.text_field :distance, placeholder: '移動的總距離(大概)', tabindex: 5 %>
+      <%= f.text_field :distance, placeholder: '移動總距離', tabindex: 5 %>
     <% end %>
   </div>
   <div class="col-4">
@@ -61,7 +56,14 @@
   <div class="col-4">
     <%= f.label :numbers_of_people do %>
       承載人數
-      <%= f.number_field :numbers_of_people, placeholder: '乘客與駕駛', tabindex: 7 %>
+      <%= f.number_field :numbers_of_people, placeholder: '乘客與駕駛', value: 1, tabindex: 7 %>
+    <% end %>
+  </div>
+
+  <div class="col-4">
+    <%= f.label :video_link do %>
+      影片連結
+      <%= f.text_field :video_link, placeholder: 'youtube影片連結', tabindex: 1 %>
     <% end %>
   </div>
 

@@ -45,3 +45,4 @@ end
 
 # gem 'formtastic', '~> 3.0'
 gem 'switchery-rails'
+gem 'notifyjs_rails', '~> 0.0.2'

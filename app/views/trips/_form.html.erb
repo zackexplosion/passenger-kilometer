@@ -21,29 +21,30 @@
   <% end %>
 
   <div class="col-2">
-    <%= f.label :video_link do %>
-      影片連結
-      <%= f.text_field :video_link, placeholder: '請輸入youtube影片連結', tabindex: 1 %>
-    <% end %>
-  </div>
-  <div class="col-2">
-    <%= f.label :google_map_path_link do %>
-      路線圖連結
-      <%= f.text_field :google_map_path_link, placeholder: 'Google Map的路線圖', tabindex: 2 %>
-    <% end %>
-  </div>
-  <div class="col-4">
     <%= f.label :start_point do %>
       啟始點
       <%= f.text_field :start_point, placeholder: '影片中開始的路段地點', tabindex: 3 %>
     <% end %>
   </div>
-  <div class="col-4">
+  <div class="col-2">
     <%= f.label :end_point do %>
       結束點
       <%= f.text_field :end_point, placeholder: '影片中結束的地點', tabindex: 4 %>
     <% end %>
   </div>
+
+  <div class="col-4">
+    <%= f.label :video_link do %>
+      影片連結
+      <%= f.text_field :video_link, placeholder: '請輸入youtube影片連結', tabindex: 1 %>
+    <% end %>
+  </div>
+<!--   <div class="col-2">
+    <%= f.label :google_map_path_link do %>
+      路線圖連結
+      <%= f.text_field :google_map_path_link, placeholder: 'Google Map的路線圖', tabindex: 2 %>
+    <% end %>
+  </div> -->
   <div class="col-4">
     <%= f.label :distance do %>
       移動距離
@@ -57,30 +58,30 @@
     <% end %>
   </div>
 
-  <div class="col-3">
+  <div class="col-4">
     <%= f.label :numbers_of_people do %>
       承載人數
       <%= f.number_field :numbers_of_people, placeholder: '乘客與駕駛', tabindex: 7 %>
     <% end %>
   </div>
 
-  <div class="col-3">
+<!--   <div class="col-3">
     <%= f.label :accident do %>
       是否發生事故
       <%= f.check_box :accident, :class => 'js-switch', tabindex: 9 %>
     <% end %>
-  </div>
+  </div> -->
 
-  <div class="col-3 col-submit">
+<!--   <div class="col-3 col-submit">
     <button type="submit">送出</button>
-  </div>
+  </div> -->
 
   <!-- <div class="col-submit">
     <button type="submit">確定</button>
   </div> -->
 
-<!--   <div class="col-submit">
-    <%= f.submit %>
-  </div> -->
+  <div class="col-submit">
+    <button id="action-button" type="submit">下一步</button>
+  </div>
 <% end %>
 </div>

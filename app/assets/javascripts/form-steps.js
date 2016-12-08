@@ -37,12 +37,33 @@ var number_of_passenger_validation = function(value) {
   return true
 
 }
+var load_video_player = function(video_id){
+  var onPlayerReady = function(e){
+    player.mute()
+    var d = player.getDuration()
+    console.log(d)
+  }
+
+  var player = new YT.Player('video-player', {
+    height: '275',
+    // width: '640',
+    playerVars: { 'autoplay': 1},
+    videoId: video_id,
+    events: {
+      'onReady': onPlayerReady,
+      // 'onStateChange': onPlayerStateChange
+    }
+  })
+}
 
 var youtube_link_validation = function(url) {
   var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
   var match = url.match(regExp)
   if ( match && match[7].length == 11 ){
-    return match[7];
+    var video_id = match[7]
+    load_video_player(video_id)
+    $('#trip_video_link').val(video_id)
+    return video_id
   }else{
     console.log('not a valid youtube link')
       // alert("Could not extract video ID.");
@@ -179,7 +200,6 @@ function initFormSteps(map, form_steps) {
       if(debounce){
         clearTimeout(debounce)
       }
-
       debounce = setTimeout(function(){
         console.log(event.type)
         action_button.submit()

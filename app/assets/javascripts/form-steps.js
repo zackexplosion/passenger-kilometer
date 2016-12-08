@@ -37,11 +37,40 @@ var number_of_passenger_validation = function(value) {
   return true
 
 }
+var video_duration = 0
+var distance_validation = function(value){
+  // assume max speed 300km/h
+  value = parseFloat(value)
+
+  if ( typeof value !== 'number'){
+    return {
+      is_valid: false,
+      message: '您輸入的資料不是一個數字'
+    }
+  }
+
+  var avg_speed_in_km_h = value / (video_duration / 3600)
+
+  console.log('avg_speed_in_km_h', avg_speed_in_km_h)
+  if ( avg_speed_in_km_h <= 0) {
+    return {
+      is_valid: false,
+      message: '這位大大你騎太慢了吧!'
+    }
+  } else if ( avg_speed_in_km_h >= 300){
+    return {
+      is_valid: false,
+      message: '您的平均速度比高鐵還快啦！！'
+    }
+  }
+
+  return true
+}
+
 var load_video_player = function(video_id){
   var onPlayerReady = function(e){
     player.mute()
-    var d = player.getDuration()
-    console.log(d)
+    video_duration = player.getDuration()
   }
 
   var player = new YT.Player('video-player', {
@@ -62,13 +91,32 @@ var youtube_link_validation = function(url) {
   if ( match && match[7].length == 11 ){
     var video_id = match[7]
     load_video_player(video_id)
-    $('#trip_video_link').val(video_id)
+    // $('#trip_video_link').val(video_id)
     return video_id
   }else{
     console.log('not a valid youtube link')
       // alert("Could not extract video ID.");
     return false
   }
+}
+var estimated_speed_rates = {
+  '平面禁行機車': 30,
+  '市區高架': 50,
+  '快速公路': 65,
+  '高速公路': 80
+}
+
+var calculate_estimated_trip_distance = function(){
+  var type = $('#trip_road_type').val()
+  console.log('type', type)
+  var es_speed = estimated_speed_rates[type]
+
+  var estimated_trip_distance = es_speed * (video_duration / 3600)
+  $('#trip_distance').val(estimated_trip_distance)
+}
+
+var road_type_validation = function(value){
+  return ( Object.keys(estimated_speed_rates).indexOf(value) !== -1)
 }
 
 var form_steps = {
@@ -89,15 +137,22 @@ var form_steps = {
     validation: lating_validation,
     not_valid_message: '請點擊地圖選擇結束點!'
   },
-  '#trip_distance': {
-    notify_text: '未來會有自動計算功能',
-  },
   '#trip_road_type': {
     notify_text: '選擇行駛的道路類型',
+    validation: road_type_validation,
+    not_valid_message: '道路類型錯誤!'
+  },
+  '#trip_distance': {
+    notify_text: '按照您的影片時間與道路類型計算的預估值',
+    validation: distance_validation,
+    on_focus: calculate_estimated_trip_distance
   },
   '#trip_numbers_of_people': {
     notify_text: '包含自己的乘客數量，建議不要三貼',
     validation: number_of_passenger_validation
+  },
+  '#trip_vehicle_name': {
+    notify_text: '請填入愛車的車型',
   },
   '#trip_accident': {
     notify_text: '您是否有發生事故呢？',
@@ -172,6 +227,11 @@ function initFormSteps(map, form_steps) {
     // if last step, updateStepHint will return false
     if ( updateStepHint() ){
       current_marker = null
+
+      if (typeof current_action.on_focus === 'function'){
+        current_action.on_focus()
+      }
+
       event.preventDefault()
       return
     }
@@ -191,21 +251,23 @@ function initFormSteps(map, form_steps) {
       current_form_element.val(form_value)
     }
 
-  });
+  })
+
+  $('#trip_road_type').bind('onblur change', function(e){
+    calculate_estimated_trip_distance()
+  })
 
   // listen on youtube link input change
-  (function(){
-    var debounce
-    $('#trip_video_link').bind('input change paste keyup', function(event){
-      if(debounce){
-        clearTimeout(debounce)
-      }
-      debounce = setTimeout(function(){
-        console.log(event.type)
-        action_button.submit()
-        // load_youtube_player(event.target.value)
-      }, 200)
-    })
-  })()
+  var debounce
+  $('#trip_video_link').bind('input change paste keyup', function(event){
+    if(debounce){
+      clearTimeout(debounce)
+    }
+    debounce = setTimeout(function(){
+      console.log(event.type)
+      action_button.submit()
+      // load_youtube_player(event.target.value)
+    }, 200)
+  })
 
 }

@@ -1,7 +1,7 @@
 class Trip < ActiveRecord::Base
 
 	def self.RoadTypes
-		['快車道', '市區高架', '快速公路', '高速公路']
+		['平面禁行機車', '市區高架', '快速公路', '高速公路']
 	end
 
 	def passenger_kilometer

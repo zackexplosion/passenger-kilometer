@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20161122060228) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "trips", force: :cascade do |t|
     t.string   "video_link"
     t.string   "google_map_path_link"

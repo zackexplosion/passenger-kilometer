@@ -162,4 +162,10 @@ function initFormSteps(map, form_steps) {
     }
 
   })
+
+  // listen on youtube link input change
+  $('#trip_video_link').bind('input change paste keyup mouseup',function(e){
+    console.log(e)
+  })
+
 }

@@ -38,14 +38,23 @@ var number_of_passenger_validation = function(value) {
 
 }
 
-var youtube_link_validation = function(input) {
-  return true
+var youtube_link_validation = function(url) {
+  var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+  var match = url.match(regExp)
+  if ( match && match[7].length == 11 ){
+    return match[7];
+  }else{
+    console.log('not a valid youtube link')
+      // alert("Could not extract video ID.");
+    return false
+  }
 }
 
 var form_steps = {
   '#trip_video_link': {
     notify_text: '驗證距離的影片',
     validation: youtube_link_validation,
+    not_valid_message: '這不是一個youtube連結!'
   },
   '#trip_start_point': {
     notify_text: '點擊地圖選擇啟始點',
@@ -161,11 +170,22 @@ function initFormSteps(map, form_steps) {
       current_form_element.val(form_value)
     }
 
-  })
+  });
 
   // listen on youtube link input change
-  $('#trip_video_link').bind('input change paste keyup mouseup',function(e){
-    console.log(e)
-  })
+  (function(){
+    var debounce
+    $('#trip_video_link').bind('input change paste keyup', function(event){
+      if(debounce){
+        clearTimeout(debounce)
+      }
+
+      debounce = setTimeout(function(){
+        console.log(event.type)
+        action_button.submit()
+        // load_youtube_player(event.target.value)
+      }, 200)
+    })
+  })()
 
 }

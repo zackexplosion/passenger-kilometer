@@ -64,6 +64,20 @@ form > div > label > input
   font-weight: 200;
   opacity: .66;
   transition: opacity .3s, box-shadow .3s;
+  // &[type=checkbox] {
+  //   // margin: 10px 0;
+  //   height: 30px;
+  // }
+}
+
+form .checkbox {
+  input {
+    top: 6px;
+  }
+
+  label {
+    height: 62px;
+  }
 }
 
 form > div.col-submit {

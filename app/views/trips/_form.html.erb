@@ -20,13 +20,20 @@
     </div>
   <% end %>
 
-  <div class="col-2">
-    <%= f.label :start_point do %>
-      啟始點
-      <%= f.text_field :start_point, placeholder: '影片中開始的路段地點', tabindex: 3 %>
+  <div class="col-3">
+    <%= f.label :video_link do %>
+      影片連結
+      <%= f.text_field :video_link, placeholder: 'youtube影片連結', tabindex: 1 %>
     <% end %>
   </div>
-  <div class="col-2">
+
+  <div class="col-3">
+    <%= f.label :start_point do %>
+      啟始點
+      <%= f.text_field :start_point, placeholder: '影片中開始的地點', tabindex: 3 %>
+    <% end %>
+  </div>
+  <div class="col-3">
     <%= f.label :end_point do %>
       結束點
       <%= f.text_field :end_point, placeholder: '影片中結束的地點', tabindex: 4 %>
@@ -60,19 +67,12 @@
     <% end %>
   </div>
 
-  <div class="col-4">
-    <%= f.label :video_link do %>
-      影片連結
-      <%= f.text_field :video_link, placeholder: 'youtube影片連結', tabindex: 1 %>
+  <div class="col-4 checkbox">
+    <%= f.label :accident do %>
+      有事故嗎
+      <%= f.check_box :accident, :class => 'no-js-switch', tabindex: 9 %>
     <% end %>
   </div>
-
-<!--   <div class="col-3">
-    <%= f.label :accident do %>
-      是否發生事故
-      <%= f.check_box :accident, :class => 'js-switch', tabindex: 9 %>
-    <% end %>
-  </div> -->
 
 <!--   <div class="col-3 col-submit">
     <button type="submit">送出</button>

@@ -42,7 +42,7 @@ h1 {
 .input-box {
 	width: 50%;
 	position: fixed;
-	bottom: 0;
+	top: 0;
 	left: 0;
 }
 
@@ -57,6 +57,7 @@ h1 {
 .map-frame {
   width: 100%;
   height: calc(100vh - 276px);
+  margin-top: 276px;
   position: relative;
 }
 
@@ -65,7 +66,7 @@ h1 {
   min-height: 275px;
   width: 50%;
   position: fixed;
-  bottom: 0;
+  top: 0;
   right: 0;
   background: image-url('youtube-logo.jpg') no-repeat #FFF;
   background-position: center center;

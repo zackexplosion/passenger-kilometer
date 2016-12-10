@@ -96,17 +96,17 @@ function initMap() {
   var mapOptions = {
     center: { lat: 25.0439892, lng: 121.5212213 },
     zoom: 15,
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    }
+    // mapTypeControlOptions: {
+    //   mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    // }
   }
 
   var map = new google.maps.Map(document.getElementById('map'),
-    mapOptions);
+    mapOptions)
 
   //Associate the styled map with the MapTypeId and set it to display.
-  map.mapTypes.set('map_style', styledMap);
-  map.setMapTypeId('map_style');
+  map.mapTypes.set('map_style', styledMap)
+  map.setMapTypeId('map_style')
 
   initFormSteps(map, form_steps)
 

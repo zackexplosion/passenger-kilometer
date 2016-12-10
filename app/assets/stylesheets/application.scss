@@ -23,6 +23,16 @@ html, body {
   margin: 0;
 }
 
+$header-height: 70px;
+$form-and-player-height: 275px;
+
+header {
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  width: 100%;
+}
 
 h1 {
 	font-family: 'Roboto', 'LiHei Pro','微軟正黑體', sans-serif
@@ -42,31 +52,42 @@ h1 {
 .input-box {
 	width: 50%;
 	position: fixed;
-	top: 0;
+	top: $header-height;
 	left: 0;
 }
 
 .switchery{
 	margin-top: 15px;
 }
-@media(min-width:800px){
-  .map-frame {
-    width: 100%;
-  }
-}
+
+// @media(min-width:800px){
+//   .map-frame {
+//     width: 100%;
+//   }
+// }
+
 .map-frame {
-  width: 100%;
-  height: calc(100vh - 276px);
-  margin-top: 276px;
-  position: relative;
+  $map-height: $form-and-player-height + $header-height;
+  width: 50%;
+  // margin-left: 50%;
+  height: calc(50vh -  #{$map-height});
+  // margin-top: $form-and-player-height + $header-height;
+  position: fixed !important;
+  bottom: 0;
+  right: 0;
+  @media(min-width:800px){
+    width: 100%;
+    height: calc(100vh -  #{$map-height});
+    // margin-left: 0;
+  }
 }
 
 
 #video-player {
-  min-height: 275px;
+  min-height: $form-and-player-height;
   width: 50%;
   position: fixed;
-  top: 0;
+  top: $header-height;
   right: 0;
   background: image-url('youtube-logo.jpg') no-repeat #FFF;
   background-position: center center;

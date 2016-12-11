@@ -1,4 +1,12 @@
 
+
+<div id="map" class="map-frame">
+<!-- AIzaSyB03cK_JNQ-T8KTe3odfQQ0k7lyhGD8fUw -->
+</div>
+
+<div id="video-player">
+</div>
+
 <!--
 
   Check out this super simple Form by Andrew Coyle
@@ -23,62 +31,55 @@
   <div class="col-4">
     <%= f.label :video_link do %>
       影片連結
-      <%= f.text_field :video_link, placeholder: 'youtube影片連結', tabindex: 1 %>
+      <%= f.text_field :video_link, placeholder: 'youtube影片連結', disabled: @readonly %>
     <% end %>
   </div>
 
   <div class="col-4">
     <%= f.label :start_point do %>
       啟始點
-      <%= f.text_field :start_point, placeholder: '影片中開始的地點' %>
+      <%= f.text_field :start_point, placeholder: '影片中開始的地點', disabled: @readonly %>
     <% end %>
   </div>
   <div class="col-4">
     <%= f.label :end_point do %>
       結束點
-      <%= f.text_field :end_point, placeholder: '影片中結束的地點' %>
+      <%= f.text_field :end_point, placeholder: '影片中結束的地點', disabled: @readonly %>
     <% end %>
   </div>
 
-
-<!--   <div class="col-2">
-    <%= f.label :google_map_path_link do %>
-      路線圖連結
-      <%= f.text_field :google_map_path_link, placeholder: 'Google Map的路線圖' %>
-    <% end %>
-  </div> -->
   <div class="col-4">
     <%= f.label :road_type do %>
       道路類型
-      <%= f.select :road_type, Trip.RoadTypes, :include_blank => true %>
+      <%= f.select :road_type, Trip.RoadTypes, { :include_blank => true }, { disabled: @readonly } %>
     <% end %>
   </div>
 
   <div class="col-4">
     <%= f.label :distance do %>
       移動距離(KM)
-      <%= f.text_field :distance, placeholder: '移動距離(KM)' %>
+      <%= f.text_field :distance, placeholder: '移動距離(KM)' , disabled: @readonly%>
     <% end %>
   </div>
 
   <div class="col-4">
     <%= f.label :numbers_of_people do %>
       承載人數
-      <%= f.number_field :numbers_of_people, placeholder: '乘客與駕駛', value: 1 %>
+      <%= f.number_field :numbers_of_people, placeholder: '乘客與駕駛', value: 1 , disabled: @readonly%>
     <% end %>
   </div>
 
   <div class="col-4">
     <%= f.label :vehicle_name do %>
       車輛名稱
-      <%= f.text_field :vehicle_name, placeholder: 'Dio 50' %>
+      <%= f.text_field :vehicle_name, placeholder: 'Dio 50', disabled: @readonly %>
     <% end %>
   </div>
 
   <div class="col-4 checkbox">
     <%= f.label :accident do %>
       有事故嗎
-      <%= f.check_box :accident, :class => 'no-js-switch', tabindex: 9 %>
+      <%= f.check_box :accident, :class => 'no-js-switch', disabled: @readonly %>
     <% end %>
   </div>
 
@@ -91,7 +92,7 @@
   </div> -->
 
   <div class="col-submit">
-    <button id="action-button" type="submit">下一步</button>
+    <%= button_tag "下一步", id: "action-button", type: "submit"  %>
   </div>
 <% end %>
 </div>

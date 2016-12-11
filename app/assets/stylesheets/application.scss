@@ -70,14 +70,14 @@ h1 {
   $map-height: $form-and-player-height + $header-height;
   width: 50%;
   // margin-left: 50%;
-  height: calc(50vh -  #{$map-height});
+  height: calc(100vh -  #{$map-height});
   // margin-top: $form-and-player-height + $header-height;
   position: fixed !important;
   bottom: 0;
   right: 0;
   @media(min-width:800px){
     width: 100%;
-    height: calc(100vh -  #{$map-height});
+    // height: calc(100vh -  #{$map-height});
     // margin-left: 0;
   }
 }

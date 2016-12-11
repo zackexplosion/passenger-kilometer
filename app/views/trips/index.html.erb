@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Video link</th>
-      <th>Google map path link</th>
       <th>Start point</th>
       <th>End poinrt</th>
       <th>Distance</th>
@@ -21,9 +20,8 @@
     <% @trips.each do |trip| %>
       <tr>
         <td><%= trip.video_link %></td>
-        <td><%= trip.google_map_path_link %></td>
         <td><%= trip.start_point %></td>
-        <td><%= trip.end_poinrt %></td>
+        <td><%= trip.end_point %></td>
         <td><%= trip.distance %></td>
         <td><%= trip.road_type %></td>
         <td><%= trip.numbers_of_people %></td>

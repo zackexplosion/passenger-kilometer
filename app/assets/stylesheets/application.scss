@@ -23,15 +23,41 @@ html, body {
   margin: 0;
 }
 
-$header-height: 70px;
+$header-height: 125px;
 $form-and-player-height: 275px;
 
 header {
-  height: $header-height;
   position: fixed;
   top: 0;
   text-align: center;
   width: 100%;
+  padding-top: 10px;
+  padding-left: 10px;
+  height: $header-height;
+  // @media(min-width:800px){
+  //   height: $header-height;
+  // }
+  .logo-and-slogan {
+    // float: left;
+    height: 50px;
+    display: block;
+    width: 100%;
+  }
+  .subtitle {
+    position: relative;
+    top: -15px;
+    left: 20px;
+  }
+  .logo {
+    // width: 50px;
+    img {
+      // width: 100%;
+      height: 100%;
+    }
+  }
+  h1 {
+    display: block;
+  }
 }
 
 h1 {
@@ -52,7 +78,10 @@ h1 {
 .input-box {
 	width: 50%;
 	position: fixed;
-	top: $header-height;
+  top: $header-height;
+  // @media(min-width:800px){
+  //   top: $header-height;
+  // }
 	left: 0;
 }
 
@@ -77,8 +106,6 @@ h1 {
   right: 0;
   @media(min-width:800px){
     width: 100%;
-    // height: calc(100vh -  #{$map-height});
-    // margin-left: 0;
   }
 }
 
@@ -87,8 +114,12 @@ h1 {
   min-height: $form-and-player-height;
   width: 50%;
   position: fixed;
-  top: $header-height;
   right: 0;
   background: image-url('youtube-logo.jpg') no-repeat #FFF;
   background-position: center center;
+
+  top: $header-height;
+  // @media(min-width:800px){
+  //   top: $header-height;
+  // }
 }

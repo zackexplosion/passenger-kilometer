@@ -2,11 +2,16 @@
 <html>
 <head>
   <title>延人里程記錄器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <header>
+	<div class="logo-and-slogan">
+		<a href="/" class="logo"><%= image_tag("logo.png") %></a>
+		<span class="subtitle"><%= yield(:subtitle) %></span>
+	</div>
 	<h1>目前累計運輸量 : <span><%= @total_passenger_kilometer %></span> <span style="font-size: 50%;">延人公里</span>, 事故數 0 件</h1>
 </header>
 <%= yield %>

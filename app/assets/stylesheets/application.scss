@@ -58,6 +58,11 @@ header {
   h1 {
     display: block;
   }
+  nav {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+  }
 }
 
 h1 {

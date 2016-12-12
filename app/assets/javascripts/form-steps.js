@@ -87,9 +87,12 @@ var load_video_player = function(video_id){
       // 'onStateChange': onPlayerStateChange
     }
   })
+
+  console.log('loading', video_id)
 }
 
 var youtube_link_validation = function(url) {
+  console.log(url)
   var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
   var match = url.match(regExp)
   if ( match && match[7].length == 11 ){
@@ -129,16 +132,16 @@ var form_steps = {
     validation: youtube_link_validation,
     not_valid_message: '這不是一個youtube連結!'
   },
-  '#trip_start_point': {
+  '#trip_formatted_start_point': {
     notify_text: '點擊地圖選擇啟始點',
-    formatted_input_id: 'trip_formatted_start_point',
+    raw_input_id: 'trip_start_point',
     click_on_map: true,
     validation: lating_validation,
     not_valid_message: '請點擊地圖選擇啟始點!'
   },
-  '#trip_end_point': {
+  '#trip_formatted_end_point': {
     notify_text: '點擊地圖選擇結束點',
-    formatted_input_id: 'trip_formatted_end_point',
+    raw_input_id: 'trip_end_point',
     click_on_map: true,
     validation: lating_validation,
     not_valid_message: '請點擊地圖選擇結束點!'
@@ -256,13 +259,14 @@ function initFormSteps(map, form_steps) {
       current_marker = new google.maps.Marker({position: event.latLng, map: map});
       let form_value = event.latLng.toJSON()
       form_value = JSON.stringify(form_value)
-      current_form_element.val(form_value)
+      // current_form_element.val(form_value)
+
+      $('#' + current_action.raw_input_id).val(form_value)
 
       geocoder.geocode({'location': event.latLng}, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
-          if(current_action.formatted_input_id){
-            $('#'+ current_action.formatted_input_id).val(results[0].formatted_address)
-          }
+          current_form_element.val(results[0].formatted_address)
+          // $('#'+ current_action.formatted_input_id).val(results[0].formatted_address)
         }
       })
     }

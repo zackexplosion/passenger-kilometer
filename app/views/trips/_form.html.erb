@@ -1,9 +1,3 @@
-
-
-<div id="map" class="map-frame"></div>
-
-<div id="video-player"></div>
-
 <!--
 
   Check out this super simple Form by Andrew Coyle
@@ -27,8 +21,8 @@
 
   <%= f.hidden_field :video_title, :value => @trip.video_title %>
   <%= f.hidden_field :video_id, :value => @trip.video_id %>
-  <%= f.hidden_field :formatted_start_point, :value => @trip.formatted_start_point %>
-  <%= f.hidden_field :formatted_end_point, :value => @trip.formatted_end_point %>
+  <%= f.hidden_field :start_point, :value => @trip.start_point %>
+  <%= f.hidden_field :end_point, :value => @trip.end_point %>
 
   <div class="col-4">
     <%= f.label :video_link do %>
@@ -38,15 +32,15 @@
   </div>
 
   <div class="col-4">
-    <%= f.label :start_point do %>
+    <%= f.label :formatted_start_point do %>
       啟始點
-      <%= f.text_field :start_point, placeholder: '影片中開始的地點', disabled: @readonly %>
+      <%= f.text_field :formatted_start_point, placeholder: '影片中開始的地點', disabled: @readonly %>
     <% end %>
   </div>
   <div class="col-4">
     <%= f.label :end_point do %>
       結束點
-      <%= f.text_field :end_point, placeholder: '影片中結束的地點', disabled: @readonly %>
+      <%= f.text_field :formatted_end_point, placeholder: '影片中結束的地點', disabled: @readonly %>
     <% end %>
   </div>
 

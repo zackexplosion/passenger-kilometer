@@ -136,14 +136,14 @@ var form_steps = {
     notify_text: '點擊地圖選擇啟始點',
     raw_input_id: 'trip_start_point',
     click_on_map: true,
-    validation: lating_validation,
+    // validation: lating_validation,
     not_valid_message: '請點擊地圖選擇啟始點!'
   },
   '#trip_formatted_end_point': {
     notify_text: '點擊地圖選擇結束點',
     raw_input_id: 'trip_end_point',
     click_on_map: true,
-    validation: lating_validation,
+    // validation: lating_validation,
     not_valid_message: '請點擊地圖選擇結束點!'
   },
   '#trip_road_type': {
@@ -279,7 +279,7 @@ function initFormSteps(map, form_steps) {
 
   // listen on youtube link input change
   var debounce
-  $('#trip_video_link').bind('input change paste keyup', function(event){
+  $('#trip_video_link').bind('input paste keyup', function(event){
     if(debounce){
       clearTimeout(debounce)
     }
@@ -287,7 +287,7 @@ function initFormSteps(map, form_steps) {
       console.log(event.type)
       action_button.submit()
       // load_youtube_player(event.target.value)
-    }, 200)
+    }, 500)
   })
 
 }

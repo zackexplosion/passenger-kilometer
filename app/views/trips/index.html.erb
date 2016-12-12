@@ -1,31 +1,15 @@
+<% content_for :page_id, 'list' %>
 <p id="notice"><%= notice %></p>
+<script type="text/javascript">
+var TRIPS = <%= @trips.to_json.html_safe %>;
+</script>
 
-<table class="list">
-  <thead>
-    <tr>
-      <!-- <th>Video link</th> -->
-      <th>出發地點</th>
-      <th>目的地點</th>
-      <th>移動距離</th>
-      <th>道路類型</th>
-      <th>承載人數</th>
-      <th>是否發生事故</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trips.each do |trip| %>
-      <tr>
-        <!-- <td><%= trip.video_link %></td> -->
-        <td><%= trip.formatted_start_point %></td>
-        <td><%= trip.formatted_end_point %></td>
-        <td><%= trip.distance %></td>
-        <td><%= trip.road_type %></td>
-        <td><%= trip.numbers_of_people %></td>
-        <td><%= trip.accident %></td>
-        <td><%= link_to 'Show', trip %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="info-box">
+  <h2>請點選地圖上的地標</h2>
+  <ul style="display: none">
+    <li class="video-title">標題:<span></span></li>
+    <li class="start-point">啟始點：<span></span></li>
+    <li class="end-point">結束點：<span></span></li>
+    <li class="created_at">建立日期:<span></span></li>
+  </ul>
+</div>

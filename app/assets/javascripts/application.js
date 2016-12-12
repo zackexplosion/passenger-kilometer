@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree .
 //= require switchery
 //= require notifyjs_rails
-//= require form-steps
 
 var notification_defaults = {
   className: "info",
@@ -107,7 +107,16 @@ function initMap() {
   map.mapTypes.set('map_style', styledMap)
   map.setMapTypeId('map_style')
 
-  initFormSteps(map, form_steps)
+
+  var bodyid = $('body').attr('id')
+  switch(bodyid) {
+    case 'list':
+      listTrips(map)
+      break
+    case 'new':
+      initFormSteps(map, form_steps)
+      break
+  }
 
   getCurrentPositionAndSet(map)
 }

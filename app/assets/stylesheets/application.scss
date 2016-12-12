@@ -31,7 +31,9 @@ header {
   top: 0;
   text-align: center;
   width: 100%;
-  height: $header-height;
+  height: $header-height - 1px;
+  // margin-bottom: 4px;
+  border-bottom: 1px solid #000;
   // @media(min-width:800px){
   //   height: $header-height;
   // }
@@ -79,6 +81,7 @@ h1 {
  	/*background: rgba(0, 0, 0, 0.3);*/
 }
 
+.info-box,
 .input-box {
 	width: 50%;
 	position: fixed;

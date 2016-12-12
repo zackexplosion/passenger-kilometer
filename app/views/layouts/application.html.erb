@@ -14,10 +14,13 @@
 	</div>
 	<h1>目前累計運輸量 : <span><%= @total_passenger_kilometer %></span> <span style="font-size: 50%;">延人公里</span>, 事故數 0 件</h1>
 	<nav>
-		<a href="/trips">想看其他人的紀錄嗎？</a>
+		<a href="/trips/new">找不到想看的？自己新增吧!</a>
 	</nav>
 </header>
 <%= yield %>
+
+<div id="map" class="map-frame"></div>
+<div id="video-player"></div>
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

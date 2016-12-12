@@ -30,7 +30,8 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        # format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.html { redirect_to trips_url, notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
         format.html { render :new }
@@ -41,17 +42,17 @@ class TripsController < ApplicationController
 
   # PATCH/PUT /trips/1
   # PATCH/PUT /trips/1.json
-  def update
-    respond_to do |format|
-      if @trip.update(trip_params)
-        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
-        format.json { render :show, status: :ok, location: @trip }
-      else
-        format.html { render :edit }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @trip.update(trip_params)
+  #       format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @trip }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @trip.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /trips/1
   # DELETE /trips/1.json
@@ -72,11 +73,13 @@ class TripsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
       params.require(:trip).permit(
+        :video_id,
         :video_title,
         :video_link,
         :formatted_start_point,
         :formatted_end_point,
-        :google_map_path_link, :start_point, :end_point, :distance, :road_type, :numbers_of_people, :accident, :vehicle_name
+        :start_point,
+        :end_point, :distance, :road_type, :numbers_of_people, :accident, :vehicle_name
       )
     end
 end

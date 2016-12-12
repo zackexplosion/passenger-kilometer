@@ -1,8 +1,2 @@
 <% content_for :subtitle, '不錯喔!' %>
 <% content_for :page_id, 'show' %>
-<% content_for :javascript do %>
-	<%= javascript_include_tag 'trip-show' %>
-<% end %>
-
-<div id="map" class="map-frame"></div>
-<div id="video-player" data-video-id="<%= @trip.video_id %>"></div>

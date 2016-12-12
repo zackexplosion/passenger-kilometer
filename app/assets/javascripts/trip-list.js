@@ -2,6 +2,12 @@ function listTrips (map, filter_by) {
 	var player
 	var load_player = function(video_id){
 		console.log('video_id', video_id)
+
+		if(player){
+			player.loadVideoById(video_id)
+			return false
+		}
+
 		player = new YT.Player('video-player', {
 		  height: '275',
 		  // width: '640',
@@ -33,12 +39,12 @@ function listTrips (map, filter_by) {
 			// console.log()
 			var trip = TRIPS[this.index]
 			load_player(trip.video_id)
-			var update_target = $('.info-box ul')
+			var update_target = $('.info-box table')
 			update_target.show()
-			update_target.find('.video-title span').html(trip.video_title)
-			update_target.find('.start-point span').html(trip.formatted_start_point)
-			update_target.find('.end-point span').html(trip.formatted_end_point)
-			update_target.find('.created_at span').html(trip.created_at)
+			update_target.find('.video-title').html(trip.video_title)
+			update_target.find('.start-point').html(trip.formatted_start_point)
+			update_target.find('.end-point').html(trip.formatted_end_point)
+			update_target.find('.created_at').html(trip.created_at)
 			// map.panTo(markers[this.index].getPosition())
     })
 	}

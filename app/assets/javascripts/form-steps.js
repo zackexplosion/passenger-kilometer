@@ -119,7 +119,7 @@ var calculate_estimated_trip_distance = function(){
   var es_speed = estimated_speed_rates[type]
 
   var estimated_trip_distance = es_speed * (video_duration / 3600)
-  $('#trip_distance').val(estimated_trip_distance)
+  $('#trip_distance').val(estimated_trip_distance.toFixed(2))
 }
 
 var road_type_validation = function(value){

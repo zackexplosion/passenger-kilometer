@@ -6,10 +6,28 @@ var TRIPS = <%= @trips.to_json.html_safe %>;
 
 <div class="info-box">
   <h2>請點選地圖上的地標</h2>
+  <table style="display: none">
+  	<tr>
+  		<td>標題</td>
+  		<td class="video-title"></td>
+  	</tr>
+  	<tr>
+  		<td>啟始點</td>
+  		<td class="start-point"></td>
+  	</tr>
+  	<tr>
+  		<td>結束點</td>
+  		<td class="end-point"></td>
+  	</tr>
+  	<tr>
+  		<td>建立日期</td>
+  		<td class="created_at"></td>
+  	</tr>
+  </table>
   <ul style="display: none">
-    <li class="video-title">標題:<span></span></li>
-    <li class="start-point">啟始點：<span></span></li>
-    <li class="end-point">結束點：<span></span></li>
-    <li class="created_at">建立日期:<span></span></li>
+    <!-- <li >標題:<span></span></li> -->
+    <!-- <li class="start-point">啟始點：<span></span></li> -->
+<!--     <li class="end-point">結束點：<span></span></li>
+    <li class="created_at">建立日期:<span></span></li> -->
   </ul>
 </div>

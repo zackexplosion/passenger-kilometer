@@ -34,7 +34,7 @@ window.onload = function() {
 }
 
 function getCurrentPositionAndSet(map){
-  var infoWindow = new google.maps.InfoWindow({map: map})
+  // var infoWindow = new google.maps.InfoWindow({map: map})
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {

@@ -6,7 +6,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="<%= yield(:page_id) %>">
 <header>
 	<div class="logo-and-slogan">
 		<a href="/" class="logo"><%= image_tag("logo.png") %></a>
@@ -21,6 +21,7 @@
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= yield :javascript %>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB03cK_JNQ-T8KTe3odfQQ0k7lyhGD8fUw&callback=initMap" async defer></script>
 </body>

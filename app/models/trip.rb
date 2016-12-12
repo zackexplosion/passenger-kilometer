@@ -7,4 +7,14 @@ class Trip < ActiveRecord::Base
 	def passenger_kilometer
 		self.distance * self.numbers_of_people
 	end
+
+	def self.all_passenger_kilometer
+		@passenger_kilometer = 0
+
+		self.all.each do |t|
+			@passenger_kilometer += t.passenger_kilometer
+		end
+
+		return @passenger_kilometer.round 2
+	end
 end

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :find_total_passenger_kilometer
 
   def find_total_passenger_kilometer
-  	@total_passenger_kilometer = 10
+  	# @total_passenger_kilometer = 10
+  	@total_passenger_kilometer = Trip.all_passenger_kilometer
   end
 end

@@ -71,6 +71,12 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:video_link, :google_map_path_link, :start_point, :end_point, :distance, :road_type, :numbers_of_people, :accident, :vehicle_name)
+      params.require(:trip).permit(
+        :video_title,
+        :video_link,
+        :formatted_start_point,
+        :formatted_end_point,
+        :google_map_path_link, :start_point, :end_point, :distance, :road_type, :numbers_of_people, :accident, :vehicle_name
+      )
     end
 end

@@ -28,6 +28,11 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :video_title, :value => @trip.video_title %>
+  <%= f.hidden_field :video_id, :value => @trip.video_id %>
+  <%= f.hidden_field :formatted_start_point, :value => @trip.formatted_start_point %>
+  <%= f.hidden_field :formatted_end_point, :value => @trip.formatted_end_point %>
+
   <div class="col-4">
     <%= f.label :video_link do %>
       影片連結

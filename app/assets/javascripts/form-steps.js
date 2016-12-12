@@ -71,6 +71,10 @@ var load_video_player = function(video_id){
   var onPlayerReady = function(e){
     player.mute()
     video_duration = player.getDuration()
+
+    var video_data = player.getVideoData()
+    $('#trip_video_title').val(video_data.title)
+    $('#trip_video_id').val(video_data.video_id)
   }
 
   var player = new YT.Player('video-player', {

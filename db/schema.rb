@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208193338) do
+ActiveRecord::Schema.define(version: 20161212130258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,13 @@ ActiveRecord::Schema.define(version: 20161208193338) do
     t.string   "road_type"
     t.integer  "numbers_of_people"
     t.boolean  "accident"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.string   "vehicle_name"
+    t.string   "formatted_start_point"
+    t.string   "formatted_end_point"
+    t.string   "video_title"
+    t.string   "video_id"
   end
 
 end

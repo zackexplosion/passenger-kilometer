@@ -44,7 +44,11 @@ function listTrips (map, filter_by) {
 			update_target.find('.video-title').html(trip.video_title)
 			update_target.find('.start-point').html(trip.formatted_start_point)
 			update_target.find('.end-point').html(trip.formatted_end_point)
+			update_target.find('.road_type').html(trip.road_type)
+			update_target.find('.numbers_of_people').html(trip.numbers_of_people)
+			update_target.find('.passenger-kilometer').html((trip.numbers_of_people * trip.distance).toFixed(2))
 			update_target.find('.created_at').html(trip.created_at)
+
 			// map.panTo(markers[this.index].getPosition())
     })
 	}

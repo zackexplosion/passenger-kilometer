@@ -131,12 +131,14 @@ var form_steps = {
   },
   '#trip_start_point': {
     notify_text: '點擊地圖選擇啟始點',
+    formatted_input_id: 'trip_formatted_start_point',
     click_on_map: true,
     validation: lating_validation,
     not_valid_message: '請點擊地圖選擇啟始點!'
   },
   '#trip_end_point': {
     notify_text: '點擊地圖選擇結束點',
+    formatted_input_id: 'trip_formatted_end_point',
     click_on_map: true,
     validation: lating_validation,
     not_valid_message: '請點擊地圖選擇結束點!'
@@ -242,6 +244,8 @@ function initFormSteps(map, form_steps) {
 
   })
 
+  var geocoder = new google.maps.Geocoder
+
   google.maps.event.addListener(map, 'click', function(event) {
     // remove last marker
     if (current_marker){
@@ -253,6 +257,14 @@ function initFormSteps(map, form_steps) {
       let form_value = event.latLng.toJSON()
       form_value = JSON.stringify(form_value)
       current_form_element.val(form_value)
+
+      geocoder.geocode({'location': event.latLng}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          if(current_action.formatted_input_id){
+            $('#'+ current_action.formatted_input_id).val(results[0].formatted_address)
+          }
+        }
+      })
     }
 
   })

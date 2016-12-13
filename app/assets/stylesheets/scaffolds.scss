@@ -1,5 +1,7 @@
 html, body { width: 100%; height: 100%; background: #ECF3F3 }
 
+
+
 form
 {
   display: block;
@@ -10,6 +12,9 @@ form
   border: 1px solid #E4E4E4;
   border-radius: 5px;
   font-size: 0;
+  input[readonly], select[readonly] {
+    color: rgb(236, 223, 223);
+  }
 }
 
 @media(min-width:800px){

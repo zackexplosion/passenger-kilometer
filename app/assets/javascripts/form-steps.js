@@ -176,7 +176,7 @@ function initFormSteps(map, form_steps) {
   var setp_keys = Object.keys(form_steps)
   var current_form_element
 
-  function updateStepHint(){
+  function goNextStep(){
     // if current form element is not null, hide the prevous element
     if(current_form_element){
       $('.notifyjs-wrapper').trigger('notify-hide')
@@ -192,14 +192,30 @@ function initFormSteps(map, form_steps) {
     // select from the JSON key
     current_form_element = $(setp_keys[current_step])
     current_form_element.focus()
+
     // get the notify text from current action
     var notify_text = current_action.notify_text
-    current_form_element.notify(notify_text)
+    // current_form_element.notify(notify_text)
+
+    $('.input-box').notify(notify_text)
+
+    var elements = $('form input, form select')
+    elements.closest('.col').hide()
+    current_form_element.closest('.col').show()
+    // elements.attr('readonly', true)
+    // elements.css({
+    //   background: 'transparent'
+    // })
+
+    // current_form_element.attr('readonly', false)
+    // current_form_element.css({
+    //   background: '#eee'
+    // })
 
     return true
   }
 
-  updateStepHint()
+  goNextStep()
 
   var submit_form = false
   action_button.on('click submit', function(event){
@@ -238,8 +254,14 @@ function initFormSteps(map, form_steps) {
       current_step--
     }
 
+<<<<<<< HEAD
     // if last step, updateStepHint will return false
     if ( updateStepHint() ){
+=======
+
+    // if last step, goNextStep will return false
+    if ( goNextStep() ){
+>>>>>>> 13ba2ca45c48d83bee8091b7bf9e7bc925be8a72
       current_marker = null
 
       if (typeof current_action.on_focus === 'function'){

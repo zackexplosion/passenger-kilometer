@@ -24,55 +24,55 @@
   <%= f.hidden_field :start_point, :value => @trip.start_point %>
   <%= f.hidden_field :end_point, :value => @trip.end_point %>
 
-  <div class="col-4">
+  <div class="col">
     <%= f.label :video_link do %>
       影片連結
       <%= f.text_field :video_link, placeholder: 'youtube影片連結', disabled: @readonly %>
     <% end %>
   </div>
 
-  <div class="col-4">
+  <div class="col">
     <%= f.label :formatted_start_point do %>
       啟始點
       <%= f.text_field :formatted_start_point, placeholder: '影片中開始的地點', disabled: @readonly %>
     <% end %>
   </div>
-  <div class="col-4">
+  <div class="col">
     <%= f.label :end_point do %>
       結束點
       <%= f.text_field :formatted_end_point, placeholder: '影片中結束的地點', disabled: @readonly %>
     <% end %>
   </div>
 
-  <div class="col-4">
+  <div class="col">
     <%= f.label :road_type do %>
       道路類型
       <%= f.select :road_type, Trip.RoadTypes, { :include_blank => true }, { disabled: @readonly } %>
     <% end %>
   </div>
 
-  <div class="col-4">
+  <div class="col">
     <%= f.label :distance do %>
-      移動距離(KM)
-      <%= f.text_field :distance, placeholder: '移動距離(KM)' , disabled: @readonly%>
+      移動距離
+      <%= f.text_field :distance, placeholder: 'KM' , disabled: @readonly%>
     <% end %>
   </div>
 
-  <div class="col-4">
+  <div class="col">
     <%= f.label :numbers_of_people do %>
       承載人數
       <%= f.number_field :numbers_of_people, placeholder: '乘客與駕駛', value: 1 , disabled: @readonly%>
     <% end %>
   </div>
 
-  <div class="col-4">
+  <div class="col">
     <%= f.label :vehicle_name do %>
       車輛名稱
       <%= f.text_field :vehicle_name, placeholder: 'Dio 50', disabled: @readonly %>
     <% end %>
   </div>
 
-  <div class="col-4 checkbox">
+  <div class="col checkbox">
     <%= f.label :accident do %>
       有事故嗎
       <%= f.check_box :accident, :class => 'no-js-switch', disabled: @readonly %>

@@ -195,18 +195,22 @@ function initFormSteps(map, form_steps) {
 
     // get the notify text from current action
     var notify_text = current_action.notify_text
-    current_form_element.notify(notify_text)
+    // current_form_element.notify(notify_text)
+
+    $('.input-box').notify(notify_text)
 
     var elements = $('form input, form select')
-    elements.attr('readonly', true)
-    elements.css({
-      background: 'transparent'
-    })
+    elements.closest('.col').hide()
+    current_form_element.closest('.col').show()
+    // elements.attr('readonly', true)
+    // elements.css({
+    //   background: 'transparent'
+    // })
 
-    current_form_element.attr('readonly', false)
-    current_form_element.css({
-      background: '#eee'
-    })
+    // current_form_element.attr('readonly', false)
+    // current_form_element.css({
+    //   background: '#eee'
+    // })
 
     return true
   }

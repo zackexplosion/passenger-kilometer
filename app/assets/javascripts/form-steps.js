@@ -172,7 +172,7 @@ function initFormSteps(map, form_steps) {
   var current_marker
   var current_step = 0
   var current_action
-  var action_button = $('#action-button')
+  var action_button = $('.action-button')
   var setp_keys = Object.keys(form_steps)
   var current_form_element
 
@@ -204,6 +204,7 @@ function initFormSteps(map, form_steps) {
   var submit_form = false
   action_button.on('click submit', function(event){
     var form_validation
+    var go_next = $(this).hasClass('next')
 
     if( typeof current_action.validation !== 'function') {
       form_validation = true
@@ -221,17 +222,21 @@ function initFormSteps(map, form_steps) {
       not_valid_message = form_validation.message
     }
 
-    if ( is_valid ){
-      current_step++
-    } else {
-      console.log('input not valid')
-      current_form_element.notify(not_valid_message, {
-        className: 'error'
-      })
-      event.preventDefault()
-      return
-    }
 
+    if (go_next) {
+      if ( is_valid ){
+        current_step++
+      } else {
+        console.log('input not valid')
+        current_form_element.notify(not_valid_message, {
+          className: 'error'
+        })
+        event.preventDefault()
+        return
+      }
+    } else {
+      current_step--
+    }
 
     // if last step, updateStepHint will return false
     if ( updateStepHint() ){

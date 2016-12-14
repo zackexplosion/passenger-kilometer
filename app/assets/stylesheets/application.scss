@@ -83,13 +83,15 @@ h1 {
 
 .info-box,
 .input-box {
-	width: 50%;
-	position: fixed;
-  top: $header-height;
-  // @media(min-width:800px){
-  //   top: $header-height;
-  // }
-	left: 0;
+  width: 100%;
+  margin-top: 140px;
+  @media(min-width:800px){
+    margin-top: 0px;
+    left: 0;
+    top: $header-height;
+    width: 50%;
+    position: fixed;
+  }
 }
 
 .switchery{
@@ -104,29 +106,29 @@ h1 {
 
 .map-frame {
   $map-height: $form-and-player-height + $header-height;
-  width: 50%;
+  width: 100%;
   // margin-left: 50%;
   height: calc(100vh -  #{$map-height});
   // margin-top: $form-and-player-height + $header-height;
-  position: fixed !important;
-  bottom: 0;
-  right: 0;
+
   @media(min-width:800px){
-    width: 100%;
+    position: fixed !important;
+    bottom: 0;
+    right: 0;
   }
 }
 
 
 #video-player {
   min-height: $form-and-player-height;
-  width: 50%;
-  position: fixed;
-  right: 0;
+  width: 100%;
   background: image-url('youtube-logo.jpg') no-repeat #FFF;
   background-position: center center;
 
-  top: $header-height;
-  // @media(min-width:800px){
-  //   top: $header-height;
-  // }
+  @media(min-width:800px){
+    top: $header-height;
+    width: 50%;
+    position: fixed;
+    right: 0;
+  }
 }

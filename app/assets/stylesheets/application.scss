@@ -84,7 +84,6 @@ h1 {
 .info-box,
 .input-box {
   width: 100%;
-  margin-top: 140px;
   @media(min-width:800px){
     margin-top: 0px;
     left: 0;
@@ -120,12 +119,14 @@ h1 {
 
 
 #video-player {
+  margin-top: 140px;
   min-height: $form-and-player-height;
   width: 100%;
   background: image-url('youtube-logo.jpg') no-repeat #FFF;
   background-position: center center;
 
   @media(min-width:800px){
+    margin-top: 0px;
     top: $header-height;
     width: 50%;
     position: fixed;

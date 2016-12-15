@@ -27,16 +27,19 @@ $header-height: 125px;
 $form-and-player-height: 275px;
 
 header {
-  position: fixed;
-  top: 0;
   text-align: center;
   width: 100%;
-  height: $header-height - 1px;
+
   // margin-bottom: 4px;
   border-bottom: 1px solid #000;
   // @media(min-width:800px){
   //   height: $header-height;
   // }
+  @media(min-width:800px){
+    position: fixed;
+    top: 0;
+    height: $header-height - 1px;
+  }
   .logo-and-slogan {
     padding-top: 5px;
     // padding-left: 10px;
@@ -119,14 +122,12 @@ h1 {
 
 
 #video-player {
-  margin-top: 140px;
   min-height: $form-and-player-height;
   width: 100%;
   background: image-url('youtube-logo.jpg') no-repeat #FFF;
   background-position: center center;
 
   @media(min-width:800px){
-    margin-top: 0px;
     top: $header-height;
     width: 50%;
     position: fixed;
